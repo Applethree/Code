@@ -1,0 +1,16 @@
+#include <algorithm>
+#include <vector>
+
+int solution(vector<int> &A) {
+sort(A.begin(), A.end());
+int size=A.size();
+if (size < 3)
+    return 0;
+for(int i = 0; i< size-2 ; i++)
+    {
+        if(A[i] >0 && (A[i] + A[i+1] > A[i+2]))
+            return 1;
+    }
+return 0;
+}
+    
