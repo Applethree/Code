@@ -1,0 +1,30 @@
+#include<algorithm>
+#include<vector>
+
+int max(int &val1,int &val2)
+{
+    if (val1>=val2)
+        {return val1;}
+    else
+        {return val2;}
+}
+
+int solution(vector<int> &A) {
+    int size=A.size();
+    if (size==3)
+        {return A[0]*A[1]*A[2];}
+    else
+    {
+        int maxdata=0;
+        sort(A.begin(),A.end());
+        if ((A[size-3]>0 && A[size-2]>0 && A[size-1]>0)||(A[size-3]<0 && A[size-2]<0 && A[size-1]<0))
+        {
+            maxdata=A[size-3]*A[size-2]*A[size-1];
+        }
+        if (A[0]<0 && A[1]<0 && A[size-1]>0)
+        {
+            maxdata=max(maxdata,A[0]*A[1]*A[size-1]);
+        }
+    return maxdata; 
+    }   
+}
