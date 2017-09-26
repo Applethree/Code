@@ -1,0 +1,21 @@
+int solution(int N) {
+    int i=1;
+    int j=0;
+    while(i*i<N)
+    {
+        if(N%i==0)
+        {
+            j=j+2;
+            i=i+1;
+        }
+        else
+        {
+            i=i+1;
+        }
+    }
+    if (i*i==N)
+    {
+        j=j+1;
+    }
+    return j;
+}
