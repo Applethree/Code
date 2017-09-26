@@ -1,0 +1,71 @@
+#include<vector>
+int solution(vector<int> &A) {
+    // write your code in C++14 (g++ 6.2.0)
+    int size=A.size();
+    vector<int>store;
+    for(int i=1;i<size-1;i++)
+    {
+        if(A[i]>A[i-1]&&A[i]>A[i+1])
+        {
+            store.push_back(i);
+        }
+    }
+    int psize=store.size();
+    cout<<psize;
+    for (int i=psize;i>0;i--)
+    {
+        if(size%i==0)
+        {
+            int k=size/i;
+            for(int j=1;j<=k;j++)
+            {
+                if()
+                {
+                    
+                }
+            }
+            
+        }
+    }
+}
+
+
+
+#include <vector>
+using namespace std;
+int solutionPeaks(vector<int> &A)
+{
+    int len = A.size();
+    assert(len > 0);
+    int i = 1, d = 2, lastPeakIdx = 0, cnt;
+    vector<int> lastPeaks(len, 0);
+    while (i < len)
+    {
+        lastPeaks[i] = lastPeaks[i - 1];
+        if ((i + 1) < len && A[i] > A[i - 1] && A[i] > A[i + 1])
+            lastPeaks[i] = i;
+        ++i;
+    }
+    while (d <= len)
+    {
+        if (0 == len % d)
+        {
+            lastPeakIdx = 0;
+            cnt = 0;
+            for (i = d; i <= len; i += d)
+            {
+                if (lastPeaks[i - 1] == lastPeakIdx)
+                    break;
+                else
+                {
+                    lastPeakIdx = lastPeaks[i - 1];
+                    ++cnt;
+                }
+            }
+            if (cnt == len / d)
+                return cnt;
+        }
+        ++d;
+    }
+    return 0;
+}
